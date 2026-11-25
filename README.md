@@ -71,11 +71,11 @@ powershell -ExecutionPolicy Bypass -File install.ps1 -Profile web
 powershell -ExecutionPolicy Bypass -File install.ps1 -DryRun
 ```
 
-也可以从 GitHub 直接下载并执行（不先解压）：
+也可以从 GitHub 下载 ZIP：
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -Command "iwr https://raw.githubusercontent.com/Elysia-gy/elysia-pt/main/install.ps1 -OutFile $env:TEMP\elysia-install.ps1; & $env:TEMP\elysia-install.ps1"
-```
+`https://github.com/Elysia-gy/elysia-pt/archive/refs/heads/main.zip`
+
+解压后双击里面的 `install.cmd` 即可。
 
 ### 方式二：从 GitHub 源码安装
 
