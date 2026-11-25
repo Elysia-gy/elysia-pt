@@ -50,7 +50,7 @@
 ### 方式一：从 GitHub 源码安装
 
 ```sh
-git clone https://github.com/Elysia-gy/dsh-elysia.git
+git clone https://github.com/Elysia-gy/elysia-pt.git
 cd dsh-elysia
 npm install
 npm run build          # tsc → lib/index.js + lib/client.js + 类型声明
