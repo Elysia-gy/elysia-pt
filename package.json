@@ -1,0 +1,44 @@
+{
+  "name": "dsh-elysia",
+  "version": "0.1.0",
+  "description": "爱莉希雅在 DSH 里住下：人设对话、四层长期记忆、七维心情与主动开口。",
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "cordis", "companion"],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": { "types": "./lib/index.d.ts", "default": "./lib/index.js" },
+    "./client": { "types": "./lib/client.d.ts", "default": "./lib/client.js" },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": { "platform": "web" }
+  },
+  "files": ["lib", "assets", "src", "README.md"],
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/emotion.test.ts test/mood.test.ts test/memory.test.ts test/gate.test.ts test/proactive.test.ts test/persona.test.ts test/store.test.ts test/reminder.test.ts test/companion.test.ts",
+    "test:smoke": "node --experimental-strip-types --import ./test/stub-register.mjs --test test/smoke.test.ts",
+    "test:all": "npm run test && npm run test:smoke",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "license": "MIT",
+  "engines": { "node": ">=22.12.0" },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4",
+    "@deepseek-ai/dsh-commands": "^0.2.0-rc.1",
+    "@deepseek-ai/dsh-home-paths": "^0.2.0-rc.1",
+    "@deepseek-ai/dsh-llm": "^0.2.0-rc.1",
+    "@deepseek-ai/schemastery": "^3.0.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4",
+    "@deepseek-ai/dsh-commands": "^0.2.0-rc.1",
+    "@deepseek-ai/dsh-home-paths": "^0.2.0-rc.1",
+    "@deepseek-ai/dsh-llm": "^0.2.0-rc.1",
+    "@deepseek-ai/schemastery": "^3.0.0",
+    "@types/node": "^26.2.0",
+    "typescript": "^5.5.0"
+  }
+}
+

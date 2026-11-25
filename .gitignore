@@ -1,0 +1,14 @@
+node_modules/
+*.tmp
+*.log
+.DS_Store
+boot.json
+electron-probe.txt
+preview-intro.html
+
+desktop/ClickAt.cs
+desktop/LayeredTest.cs
+desktop/ShotFull.cs
+desktop/ShotScreen.cs
+desktop/TransparentTest.cs
+desktop/ElysiaDesktopPet.cs
