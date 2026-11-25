@@ -47,11 +47,41 @@
 
 ## 三、安装
 
-### 方式一：从 GitHub 源码安装
+### 方式一：一键安装（Windows，推荐）
+
+下载仓库 ZIP 并解压，双击 `install.cmd`。脚本会自动：
+
+- 找到本机 DSH 的 profile 和自带 pnpm
+- 把插件复制到 `<dshHome>\plugins\dsh-elysia`
+- 写入 profile 依赖和 `cordis.patch.yml`
+
+装完手动重启 DSH 即可；想让它装完自动重启，用：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install.ps1 -Restart
+```
+
+常用参数：
+
+```powershell
+# Web 版 profile
+powershell -ExecutionPolicy Bypass -File install.ps1 -Profile web
+
+# 只看会做什么，不落盘
+powershell -ExecutionPolicy Bypass -File install.ps1 -DryRun
+```
+
+也可以从 GitHub 直接下载并执行（不先解压）：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iwr https://raw.githubusercontent.com/Elysia-gy/elysia-pt/main/install.ps1 -OutFile $env:TEMP\elysia-install.ps1; & $env:TEMP\elysia-install.ps1"
+```
+
+### 方式二：从 GitHub 源码安装
 
 ```sh
 git clone https://github.com/Elysia-gy/elysia-pt.git
-cd dsh-elysia
+cd elysia-pt
 npm install
 npm run build          # tsc → lib/index.js + lib/client.js + 类型声明
 
@@ -62,9 +92,9 @@ dsh plugin --profile desktop add file:.
 装完**重开 DSH**（或重启 `dsh web`）才生效。
 
 > 如果 `dsh plugin` 在桌面 profile 上被拒绝，用桌面应用的「插件管理」安装本地目录，
-> 或把 `lib/` 与 `assets/` 覆盖到 `<profile>/node_modules/dsh-elysia/` 后重启 DSH。
+> 或直接运行上面的 `install.ps1`。
 
-### 方式二：应用内「插件管理」
+### 方式三：应用内「插件管理」
 
 桌面应用里打开插件管理页，安装框填仓库本地路径；`lib/` 已随仓库提交，克隆后即可安装。
 桌面版 exe 也已提交，只有改 `desktop/ElysiaDesktopPetWin.cs` 时才需要重新编译：
